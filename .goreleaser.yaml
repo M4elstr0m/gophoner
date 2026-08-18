@@ -1,0 +1,70 @@
+version: 2
+
+project_name: gophoner
+
+before:
+  hooks:
+    - go generate ./...
+    - go mod tidy
+
+builds:
+  - id: gophoner
+    main: ./cmd/gophoner
+    binary: gophoner
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - windows
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+      - -X github.com/M4elstr0m/gophoner/internal/version.Version={{.Version}}
+      - -X github.com/M4elstr0m/gophoner/internal/version.Commit={{.ShortCommit}}
+      - -X github.com/M4elstr0m/gophoner/internal/version.Date={{.Date}}
+
+archives:
+  - id: gophoner
+    formats: [tar.gz]
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+    name_template: >-
+      {{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}
+
+checksum:
+  name_template: "checksums.txt"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore:"
+
+release:
+  github:
+    owner: M4elstr0m
+    name: gophoner
+  name_template: "{{ .ProjectName }} {{ .Tag }}"
+  header: |
+    # gophoner {{ .Tag }}
+
+    Check simultaneously if a phone number is registered on popular apps & websites.
+
+    Created by [M4elstr0m](https://github.com/M4elstr0m/).
+
+  footer: |
+    ##
+
+    **Full Changelog**: https://github.com/M4elstr0m/gophoner/compare/{{ .PreviousTag }}...{{ .Tag }}
+
+    ##
+
+    Please check README.md for further information.
+
+    Do not hesitate to reach me, using the links on [my profile](https://github.com/M4elstr0m/)
