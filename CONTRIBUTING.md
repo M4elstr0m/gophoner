@@ -20,6 +20,8 @@ permits.
 4. A maintainer will review it. There's no guarantee of acceptance —
    feedback and iteration are part of the process.
 
+You can also request a feature (e.g: a new website module) by opening a discussion or an issue on Github. This is a good way to contribute to this project.
+
 ## Contributor agreement
 
 By submitting a pull request, or otherwise contributing code,

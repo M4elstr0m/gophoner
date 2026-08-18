@@ -1,6 +1,6 @@
 # gophoner
 
-Check simultaneously if a phone number is registered on popular apps & websites
+Check simultaneously if a phone number is registered on popular apps & websites, without any prerequisite.
 
 ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=M4elstr0m.gophoner&left_text=Visitors&right_color=orange)
 ![Stars Badge](https://img.shields.io/github/stars/M4elstr0m/gophoner?style=flat&color=yellow&label=Stars)
@@ -11,12 +11,14 @@ Please star & share this repository if you find it useful ⭐
 
 ## Disclaimer
 
+This tool does not alert the target phone number for all the default modules (e.g: when using `--all`). If a module does alert the target in the future, it will be explicitely written.
+
 > [!CAUTION]
 > It is important you read the full policy of this project before using or contributing to this tool.
 > 
 > Please refer to the following sections:
-> * [Legal & Ethical Use](#legal--ethical-use-)
-> * [License](#license-️)
+> - [Legal & Ethical Use](#legal--ethical-use-)
+> - [License](#license-️)
 
 ## Installation :computer:
 
@@ -85,3 +87,19 @@ Here is a plain-language summary, which is not a substitute for the license itse
 - Expect a warranty: it's provided "as is", with no liability to the author.
 
 If **gophoner** is useful to you, a star, or a mention to your colleagues, is always appreciated :wink:
+
+## Roadmap :world_map:
+
+- [ ] v1.0.0
+  - [x] Initial tool and Amazon module
+  - [ ] More modules: Microsoft, Facebook, Instagram, Snapchat
+  - [ ] **gophoner** logo!
+- [ ] CLI QoL: only display positive results, loading bar
+- [ ] Redirect output to JSON
+- [ ] A plug-in system (maybe)
+
+## Credits :newspaper:
+
+- The guy who tried to log into one of my accounts at 3 AM, 20 times in 30 minutes, then gave up. He gave me the insomnia that built this tool.
+- [sherlock](https://github.com/sherlock-project/sherlock) & [holehe](https://github.com/megadose/holehe), tools that also use a single credential to check hundreds of services
+- [ignorant](https://github.com/megadose/ignorant), the first tool I found when searching for something that already did what I had in mind
