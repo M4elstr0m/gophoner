@@ -2,6 +2,8 @@
 
 Check simultaneously if a phone number is registered on popular apps & websites, without any prerequisite.
 
+<!-- GOPHONER LOGO -->
+
 ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=M4elstr0m.gophoner&left_text=Visitors&right_color=orange)
 ![Stars Badge](https://img.shields.io/github/stars/M4elstr0m/gophoner?style=flat&color=yellow&label=Stars)
 ![License Badge](https://img.shields.io/badge/License-PolyForm%20Internal%20Use%20License%201.0.0-lightgrey)
@@ -9,18 +11,43 @@ Check simultaneously if a phone number is registered on popular apps & websites,
 
 Please star & share this repository if you find it useful ⭐
 
-## Disclaimer
+<!-- GOPHONER GIF -->
 
-This tool does not alert the target phone number for all the default modules (e.g: when using `--all`). If a module does alert the target in the future, it will be explicitely written.
+## Table of Contents
+
+- [Disclaimer](#disclaimer-️warning)
+- [Features](#features)
+- [Installation](#installation-computer)
+- [Usage](#usage-books)
+- [Supported Modules](#modules-jigsaw)
+- [Roadmap](#roadmap-️world_map)
+- [Legal & Ethical Use](#legal--ethical-use-scroll)
+- [License](#license-️balance_scale)
+- [Credits](#credits-newspaper)
+
+## Disclaimer :warning:
 
 > [!CAUTION]
 > It is important you read the full policy of this project before using or contributing to this tool.
 > 
 > Please refer to the following sections:
-> - [Legal & Ethical Use](#legal--ethical-use-)
-> - [License](#license-️)
+> - [Legal & Ethical Use](#legal--ethical-use-scroll)
+> - [License](#license-️balance_scale)
+
+## Features
+
+- **CLI and TUI**: use `gophoner check` for scripting and automation, or `gophoner interactive` for a guided terminal interface.
+- **Cross-platform**: prebuilt binaries for Windows, Linux, and macOS.
+- **Concurrent module checks**: every selected module runs in parallel, so checking a phone number against several services takes about as long as the slowest one, not the sum of them all.
+- **Silent by default**: none of the currently supported modules alert or notify the target phone number, no SMS or email triggered while checking. If a future module does trigger a notification on the target's end, it will be called out explicitly.
+- **Privacy conscious logging**: target phone numbers are never written to the log file unless `--debug` is set, and `--no-log` disables all logging entirely.
+- **Randomized browser fingerprinting**: each request gets an internally consistent TLS, User-Agent, and Client Hints profile drawn from a real desktop browser pool, making requests far harder to fingerprint and block than a plain HTTP client.
+- **Single target scope**: checks one phone number against your chosen modules per invocation, not built for bulk enumeration.
+- **Update aware**: checks for new releases on startup and lets you know when one is available, disable with `--no-update`.
 
 ## Installation :computer:
+
+![go install](https://img.shields.io/badge/Go%20Install-00ADD8?logo=Go&logoColor=white&style=for-the-badge)
 
 Using `go install` (Requires [Go](https://go.dev/dl/) 1.26 or later.)
 ```sh
@@ -44,14 +71,38 @@ gophoner interactive
 gophoner check -t +15551234567 -A
 ```
 
+## Modules :jigsaw:
+
+**v1.0.0 Modules**
+
+![Amazon](https://custom-icon-badges.demolab.com/badge/Amazon-FF6201?logo=Amazon&logoColor=white&style=for-the-badge)
+<!-- 
+![Microsoft](https://custom-icon-badges.demolab.com/badge/Microsoft-89d2ff?logo=Microsoft&logoColor=black&style=for-the-badge)
+![Facebook](https://img.shields.io/badge/Facebook-0866FF?logo=Facebook&logoColor=white&style=for-the-badge)
+![Instagram](https://img.shields.io/badge/Instagram-FF0069?logo=Instagram&logoColor=white&style=for-the-badge)
+![Snapchat](https://img.shields.io/badge/Snapchat-FFFC00?logo=Snapchat&logoColor=black&style=for-the-badge)
+![Google](https://img.shields.io/badge/Google-4285F4?logo=Google&logoColor=white&style=for-the-badge)
+![OpenAI](https://custom-icon-badges.demolab.com/badge/OpenAI-74aa9c?logo=OpenAI&logoColor=white&style=for-the-badge)
+-->
+
+## Roadmap :world_map:
+
+- [ ] v1.0.0
+  - [x] Initial tool and Amazon module
+  - [ ] More modules: Microsoft, Facebook, Instagram & plenty more surprises :no_mouth:
+  - [ ] **gophoner** logo & a see it in action GIF
+- [ ] CLI QoL: only display positive results, loading bar
+- [ ] Redirect output to JSON
+- [ ] A plug-in system (maybe)
+
 ## Legal & Ethical Use :scroll:
 
 **gophoner** is built for security research, personal OSINT hygiene (checking
 your own digital footprint), and educational purposes.
 
 Checking a phone number against a service without the number holder's
-consent may violate that service's Terms of Service, and — depending on
-your jurisdiction and how you use the results — local privacy, stalking,
+consent may violate that service's Terms of Service, and, depending on
+your jurisdiction and how you use the results, local privacy, stalking,
 or harassment laws. You are solely responsible for ensuring your use of
 this tool is lawful and authorized.
 
@@ -88,18 +139,12 @@ Here is a plain-language summary, which is not a substitute for the license itse
 
 If **gophoner** is useful to you, a star, or a mention to your colleagues, is always appreciated :wink:
 
-## Roadmap :world_map:
-
-- [ ] v1.0.0
-  - [x] Initial tool and Amazon module
-  - [ ] More modules: Microsoft, Facebook, Instagram, Snapchat
-  - [ ] **gophoner** logo!
-- [ ] CLI QoL: only display positive results, loading bar
-- [ ] Redirect output to JSON
-- [ ] A plug-in system (maybe)
-
 ## Credits :newspaper:
 
 - The guy who tried to log into one of my accounts at 3 AM, 20 times in 30 minutes, then gave up. He gave me the insomnia that built this tool.
 - [sherlock](https://github.com/sherlock-project/sherlock) & [holehe](https://github.com/megadose/holehe), tools that also use a single credential to check hundreds of services
 - [ignorant](https://github.com/megadose/ignorant), the first tool I found when searching for something that already did what I had in mind
+
+---
+
+[Go back to top :arrow_up:](#gophoner)
