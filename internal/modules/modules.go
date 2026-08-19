@@ -6,6 +6,7 @@ type Module int
 const (
 	Amazon Module = iota
 	Microsoft
+	Facebook
 )
 
 var LENGTH Module = Module(len(_Module_index) - 1)

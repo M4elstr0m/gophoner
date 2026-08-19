@@ -10,11 +10,12 @@ func _() {
 	var x [1]struct{}
 	_ = x[Amazon-0]
 	_ = x[Microsoft-1]
+	_ = x[Facebook-2]
 }
 
-const _Module_name = "AmazonMicrosoft"
+const _Module_name = "AmazonMicrosoftFacebook"
 
-var _Module_index = [...]uint8{0, 6, 15}
+var _Module_index = [...]uint8{0, 6, 15, 23}
 
 func (i Module) String() string {
 	idx := int(i) - 0

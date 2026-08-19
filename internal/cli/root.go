@@ -12,6 +12,7 @@ import (
 	"github.com/M4elstr0m/gophoner/internal/version"
 
 	_ "github.com/M4elstr0m/gophoner/internal/modules/amazon"
+	_ "github.com/M4elstr0m/gophoner/internal/modules/facebook"
 	_ "github.com/M4elstr0m/gophoner/internal/modules/microsoft"
 )
 
