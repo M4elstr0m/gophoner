@@ -76,8 +76,8 @@ gophoner check -t +15551234567 -A
 **v1.0.0 Modules**
 
 ![Amazon](https://custom-icon-badges.demolab.com/badge/Amazon-FF6201?logo=Amazon&logoColor=white&style=for-the-badge)
-<!-- 
 ![Microsoft](https://custom-icon-badges.demolab.com/badge/Microsoft-89d2ff?logo=Microsoft&logoColor=black&style=for-the-badge)
+<!-- 
 ![Facebook](https://img.shields.io/badge/Facebook-0866FF?logo=Facebook&logoColor=white&style=for-the-badge)
 ![Instagram](https://img.shields.io/badge/Instagram-FF0069?logo=Instagram&logoColor=white&style=for-the-badge)
 ![Snapchat](https://img.shields.io/badge/Snapchat-FFFC00?logo=Snapchat&logoColor=black&style=for-the-badge)
