@@ -9,11 +9,12 @@ func _() {
 	// Re-run the stringer command to generate them again.
 	var x [1]struct{}
 	_ = x[Amazon-0]
+	_ = x[Microsoft-1]
 }
 
-const _Module_name = "Amazon"
+const _Module_name = "AmazonMicrosoft"
 
-var _Module_index = [...]uint8{0, 6}
+var _Module_index = [...]uint8{0, 6, 15}
 
 func (i Module) String() string {
 	idx := int(i) - 0
