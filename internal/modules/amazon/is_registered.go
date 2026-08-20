@@ -5,6 +5,7 @@ import (
 
 	browser_profiles "github.com/M4elstr0m/gophoner/internal/browser_profiles"
 	"github.com/M4elstr0m/gophoner/internal/browser_profiles/enums/platform"
+	"github.com/M4elstr0m/gophoner/internal/modules"
 	_http "github.com/M4elstr0m/gophoner/internal/utils/http"
 )
 
@@ -26,7 +27,7 @@ func IsRegistered(phoneNumber string) (bool, error) {
 	}
 	browserProfile := browser_profiles.Random(&desktopPlatformsOnlyFilter)
 
-	client, err := _http.NewTlsClient(browserProfile, 15)
+	client, err := _http.NewTlsClient(browserProfile, modules.HTTP_CLIENT_TIMEOUT_SECONDS)
 	if err != nil {
 		log.Warn("Failed to initialize TLS client", "error", err)
 		return false, err
