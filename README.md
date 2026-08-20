@@ -22,7 +22,7 @@ Please star & share this repository if you find it useful ⭐
 - [Supported Modules](#modules-jigsaw)
 - [Roadmap](#roadmap-️world_map)
 - [Legal & Ethical Use](#legal--ethical-use-scroll)
-- [License](#license-️balance_scale)
+- [License](#license-balance_scale)
 - [Credits](#credits-newspaper)
 
 ## Disclaimer :warning:
@@ -32,7 +32,7 @@ Please star & share this repository if you find it useful ⭐
 > 
 > Please refer to the following sections:
 > - [Legal & Ethical Use](#legal--ethical-use-scroll)
-> - [License](#license-️balance_scale)
+> - [License](#license-balance_scale)
 
 ## Features
 
