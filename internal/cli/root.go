@@ -13,6 +13,7 @@ import (
 
 	_ "github.com/M4elstr0m/gophoner/internal/modules/amazon"
 	_ "github.com/M4elstr0m/gophoner/internal/modules/facebook"
+	_ "github.com/M4elstr0m/gophoner/internal/modules/google"
 	_ "github.com/M4elstr0m/gophoner/internal/modules/microsoft"
 )
 

@@ -7,6 +7,7 @@ const (
 	Amazon Module = iota
 	Microsoft
 	Facebook
+	Google
 )
 
 var LENGTH Module = Module(len(_Module_index) - 1)

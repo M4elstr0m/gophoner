@@ -11,11 +11,12 @@ func _() {
 	_ = x[Amazon-0]
 	_ = x[Microsoft-1]
 	_ = x[Facebook-2]
+	_ = x[Google-3]
 }
 
-const _Module_name = "AmazonMicrosoftFacebook"
+const _Module_name = "AmazonMicrosoftFacebookGoogle"
 
-var _Module_index = [...]uint8{0, 6, 15, 23}
+var _Module_index = [...]uint8{0, 6, 15, 23, 29}
 
 func (i Module) String() string {
 	idx := int(i) - 0
