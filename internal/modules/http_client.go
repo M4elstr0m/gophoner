@@ -1,3 +1,8 @@
 package modules
 
-const HTTP_CLIENT_TIMEOUT_SECONDS int = 15
+import (
+	"time"
+)
+
+const HTTP_CLIENT_TIMEOUT_INT_SECONDS = 15
+const HTTP_CLIENT_TIMEOUT_SECONDS = time.Duration(HTTP_CLIENT_TIMEOUT_INT_SECONDS) * time.Second

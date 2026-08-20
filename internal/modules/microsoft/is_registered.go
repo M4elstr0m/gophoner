@@ -19,7 +19,7 @@ func IsRegistered(phoneNumber string) (bool, error) {
 	}
 	browserProfile := browser_profiles.Random(&desktopPlatformsOnlyFilter)
 
-	client, err := _http.NewTlsClient(browserProfile, modules.HTTP_CLIENT_TIMEOUT_SECONDS)
+	client, err := _http.NewTlsClient(browserProfile, modules.HTTP_CLIENT_TIMEOUT_INT_SECONDS)
 	if err != nil {
 		log.Warn("Failed to initialize TLS client", "error", err)
 		return false, err
