@@ -1,4 +1,4 @@
-package google
+package openai
 
 import (
 	"github.com/M4elstr0m/gophoner/internal/browser_profiles"
@@ -7,7 +7,7 @@ import (
 	_chrome "github.com/M4elstr0m/gophoner/internal/utils/chrome"
 )
 
-const LOGIN_PAGE_URL string = "https://accounts.google.com/"
+const LOGIN_PAGE_URL string = "https://auth.openai.com/log-in"
 
 func IsRegistered(phoneNumber string) (bool, error) {
 	desktopPlatformsOnlyFilter := browser_profiles.PoolFilter{
@@ -20,5 +20,5 @@ func IsRegistered(phoneNumber string) (bool, error) {
 	ctx, cancel := _chrome.NewContext(browserProfile, modules.HTTP_CLIENT_TIMEOUT_SECONDS, true)
 	defer cancel()
 
-	return checkIdentifierRegistration(ctx, phoneNumber)
+	return checkPhoneRegistration(ctx, phoneNumber)
 }

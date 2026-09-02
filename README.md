@@ -79,10 +79,10 @@ gophoner check -t +15551234567 -A
 ![Microsoft](https://custom-icon-badges.demolab.com/badge/Microsoft-89d2ff?logo=Microsoft&logoColor=black&style=for-the-badge)
 ![Facebook](https://img.shields.io/badge/Facebook-0866FF?logo=Facebook&logoColor=white&style=for-the-badge)
 ![Google](https://img.shields.io/badge/Google-4285F4?logo=Google&logoColor=white&style=for-the-badge)
+![OpenAI](https://custom-icon-badges.demolab.com/badge/OpenAI-74aa9c?logo=OpenAI&logoColor=white&style=for-the-badge)
 <!-- 
 ![Instagram](https://img.shields.io/badge/Instagram-FF0069?logo=Instagram&logoColor=white&style=for-the-badge)
 ![Snapchat](https://img.shields.io/badge/Snapchat-FFFC00?logo=Snapchat&logoColor=black&style=for-the-badge)
-![OpenAI](https://custom-icon-badges.demolab.com/badge/OpenAI-74aa9c?logo=OpenAI&logoColor=white&style=for-the-badge)
 -->
 
 ## Roadmap :world_map:

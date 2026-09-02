@@ -5,9 +5,7 @@ import (
 	"fmt"
 	"strings"
 	"sync"
-	"time"
 
-	"github.com/M4elstr0m/gophoner/internal/browser_profiles"
 	"github.com/M4elstr0m/gophoner/internal/modules"
 	"github.com/charmbracelet/log"
 	"github.com/chromedp/cdproto/network"
@@ -22,28 +20,6 @@ const (
 	registeredAccountSignal   = "FIRST_AUTH_FACTOR"
 	unregisteredAccountSignal = `"MI613e","[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[3]]"`
 )
-
-func chromeAllocatorOptions(browserProfile *browser_profiles.BrowserProfile) []chromedp.ExecAllocatorOption {
-	return append(chromedp.DefaultExecAllocatorOptions[:],
-		chromedp.Flag("headless", true),
-		chromedp.Flag("disable-blink-features", "AutomationControlled"),
-		chromedp.Flag("enable-automation", false),
-		chromedp.Flag("disable-infobars", true),
-		chromedp.UserAgent(browserProfile.UserAgent),
-	)
-}
-
-func newChromeContext(browserProfile *browser_profiles.BrowserProfile, timeout time.Duration) (context.Context, context.CancelFunc) {
-	allocCtx, cancelAlloc := chromedp.NewExecAllocator(context.Background(), chromeAllocatorOptions(browserProfile)...)
-	ctx, cancelBrowser := chromedp.NewContext(allocCtx)
-	ctx, cancelTimeout := context.WithTimeout(ctx, timeout)
-
-	return ctx, func() {
-		cancelTimeout()
-		cancelBrowser()
-		cancelAlloc()
-	}
-}
 
 func checkIdentifierRegistration(ctx context.Context, phoneNumber string) (bool, error) {
 	var (

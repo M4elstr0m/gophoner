@@ -88,5 +88,7 @@ func print_result(result recon.Output) {
 		)
 	}
 
+	// Additionnal Infos would go here
+
 	fmt.Println(ModuleBadge(result.Module), indicatorBadge)
 }

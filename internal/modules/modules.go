@@ -8,6 +8,7 @@ const (
 	Microsoft
 	Facebook
 	Google
+	OpenAI
 )
 
 var LENGTH Module = Module(len(_Module_index) - 1)
