@@ -29,9 +29,6 @@ func ModuleBadge(module modules.Module) string {
 	return renderBadge(style, strings.ToUpper(module.String()))
 }
 
-// moduleBadgeForeground picks a light or dark foreground based on the
-// perceived brightness of the badge's background color, so module badges
-// stay readable regardless of how light or dark a module's color is.
 func moduleBadgeForeground(hexColor string) string {
 	r, g, b, ok := parseHexColor(hexColor)
 	if !ok {

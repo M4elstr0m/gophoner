@@ -9,7 +9,7 @@ Check simultaneously if a phone number is registered on popular apps & websites,
 ![License Badge](https://img.shields.io/badge/License-PolyForm%20Internal%20Use%20License%201.0.0-lightgrey)
 ![Go Version Badge](https://img.shields.io/badge/Go-26.0%2B-blue)
 
-Please star & share this repository if you find it useful ⭐
+Please star & share this repository if you find it useful :star:
 
 <!-- GOPHONER GIF -->
 
@@ -49,9 +49,18 @@ Please star & share this repository if you find it useful ⭐
 
 ![go install](https://img.shields.io/badge/Go%20Install-00ADD8?logo=Go&logoColor=white&style=for-the-badge)
 
-Using `go install` (Requires [Go](https://go.dev/dl/) 1.26 or later.)
+Using `go install` (Requires [Go](https://go.dev/dl/) 1.26 or newer)
 ```sh
 go install github.com/M4elstr0m/gophoner/cmd/gophoner@latest
+```
+
+![arch aur](https://img.shields.io/badge/AUR%20(PARU%20/%20YAY)-1793D1?logo=ArchLinux&logoColor=white&style=for-the-badge)
+
+> [!IMPORTANT]
+> This only works on Arch-based Linux distributions.
+
+```sh
+# WORK IN PROGRESS (THIS IS PLANNED)
 ```
 
 ---
