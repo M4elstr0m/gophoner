@@ -18,7 +18,7 @@ const (
 	ASBD_ID              string = "359341"
 )
 
-func IsRegistered(phoneNumber string) (bool, error) {
+func IsRegistered(phoneNumber string) modules.IsRegisteredFuncOutput {
 	desktopPlatformsOnlyFilter := browser_profiles.PoolFilter{
 		AllowedFamilySlice:   nil,
 		AllowedPlatformSlice: platform.DesktopPlatforms,
@@ -29,18 +29,18 @@ func IsRegistered(phoneNumber string) (bool, error) {
 	client, err := _http.NewTlsClient(browserProfile, modules.HTTP_CLIENT_TIMEOUT_INT_SECONDS)
 	if err != nil {
 		log.Warn("Failed to initialize TLS client", "error", err)
-		return false, err
+		return modules.MinimalIsRegisteredFuncOutput(false, err)
 	}
 
 	session, err := fetchSearchSession(browserProfile, client)
 	if err != nil {
-		return false, err
+		return modules.MinimalIsRegisteredFuncOutput(false, err)
 	}
 
 	isRegistered, err := submitAccountSearch(browserProfile, client, session, phoneNumber)
 	if err != nil {
-		return false, err
+		return modules.MinimalIsRegisteredFuncOutput(false, err)
 	}
 
-	return isRegistered, nil
+	return modules.MinimalIsRegisteredFuncOutput(isRegistered, nil)
 }

@@ -2,6 +2,7 @@ package openai
 
 import (
 	"context"
+	"regexp"
 	"strings"
 	"time"
 
@@ -27,18 +28,20 @@ const (
 	passwordPageGraceWindow = 2 * time.Second
 )
 
-func checkPhoneRegistration(ctx context.Context, phoneNumber string) (bool, error) {
+var maskedEmailPattern = regexp.MustCompile(`[\w*]+@[\w*.-]+\.\w{2,}`)
+
+func checkPhoneRegistration(ctx context.Context, phoneNumber string) (bool, map[string]string, error) {
 	if err := chromedp.Run(ctx,
 		chromedp.Navigate(LOGIN_PAGE_URL),
 		chromedp.WaitReady("body", chromedp.ByQuery),
 	); err != nil {
 		log.Warn("Failed to load login page", "error", err)
-		return false, err
+		return false, nil, err
 	}
 
 	if err := bypassExpiredSessionInterstitial(ctx); err != nil {
 		log.Warn("Failed to recover from expired-session interstitial", "error", err)
-		return false, err
+		return false, nil, err
 	}
 
 	err := chromedp.Run(ctx,
@@ -50,7 +53,7 @@ func checkPhoneRegistration(ctx context.Context, phoneNumber string) (bool, erro
 	)
 	if err != nil {
 		log.Warn("Failed to submit phone number", "error", err)
-		return false, err
+		return false, nil, err
 	}
 
 	return pollRegistrationOutcome(ctx)
@@ -69,24 +72,28 @@ func bypassExpiredSessionInterstitial(ctx context.Context) error {
 	return chromedp.Run(ctx, chromedp.Click(sessionEndedLoginLinkSelector, chromedp.ByQuery))
 }
 
-func pollRegistrationOutcome(ctx context.Context) (bool, error) {
+func pollRegistrationOutcome(ctx context.Context) (bool, map[string]string, error) {
 	ticker := time.NewTicker(outcomePollInterval)
 	defer ticker.Stop()
 
 	var onPasswordPageSince time.Time
 
+	var additionalInformationMap map[string]string = map[string]string{}
+
 	for {
 		select {
 		case <-ctx.Done():
 			log.Warn("Timed out waiting for phone-registration outcome", "error", ctx.Err())
-			return false, ctx.Err()
+			return false, nil, ctx.Err()
 		case <-ticker.C:
 			var bodyText string
 			if err := chromedp.Run(ctx, chromedp.Text("body", &bodyText, chromedp.ByQuery, chromedp.NodeVisible)); err != nil {
 				continue
 			}
 			if strings.Contains(bodyText, registeredSignalToken) {
-				return true, nil
+				additionalInformationMap["masked_email"] = maskedEmailPattern.FindString(bodyText)
+
+				return true, additionalInformationMap, nil
 			}
 
 			var currentURL string
@@ -94,7 +101,7 @@ func pollRegistrationOutcome(ctx context.Context) (bool, error) {
 				continue
 			}
 			if strings.Contains(currentURL, createAccountPagePathToken) {
-				return false, nil
+				return false, nil, nil
 			}
 			if !strings.Contains(currentURL, passwordPagePathToken) {
 				onPasswordPageSince = time.Time{}
@@ -105,7 +112,7 @@ func pollRegistrationOutcome(ctx context.Context) (bool, error) {
 				continue
 			}
 			if time.Since(onPasswordPageSince) >= passwordPageGraceWindow {
-				return false, nil
+				return false, nil, nil
 			}
 		}
 	}

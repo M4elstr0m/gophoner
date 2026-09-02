@@ -11,7 +11,7 @@ import (
 
 const LOGIN_PAGE_URL string = "https://login.live.com/oauth20_authorize.srf?client_id=3fa91358-6f74-4525-b5df-da149652be36&scope=openid+profile+User.Read+email+offline_access&redirect_uri=https%3a%2f%2fwww.linkedin.com%2fmicrosoft-login%2fhandler&response_type=code&response_mode=form_post&msproxy=1&issuer=mso&tenant=consumers&ui_locales=en-GB"
 
-func IsRegistered(phoneNumber string) (bool, error) {
+func IsRegistered(phoneNumber string) modules.IsRegisteredFuncOutput {
 	desktopPlatformsOnlyFilter := browser_profiles.PoolFilter{
 		AllowedFamilySlice:   nil,
 		AllowedPlatformSlice: platform.DesktopPlatforms,
@@ -22,18 +22,18 @@ func IsRegistered(phoneNumber string) (bool, error) {
 	client, err := _http.NewTlsClient(browserProfile, modules.HTTP_CLIENT_TIMEOUT_INT_SECONDS)
 	if err != nil {
 		log.Warn("Failed to initialize TLS client", "error", err)
-		return false, err
+		return modules.MinimalIsRegisteredFuncOutput(false, err)
 	}
 
 	session, err := fetchLoginSession(browserProfile, client)
 	if err != nil {
-		return false, err
+		return modules.MinimalIsRegisteredFuncOutput(false, err)
 	}
 
 	isRegistered, err := checkCredentialType(browserProfile, client, session, phoneNumber)
 	if err != nil {
-		return false, err
+		return modules.MinimalIsRegisteredFuncOutput(false, err)
 	}
 
-	return isRegistered, nil
+	return modules.MinimalIsRegisteredFuncOutput(isRegistered, nil)
 }

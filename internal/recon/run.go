@@ -15,9 +15,10 @@ type Input struct {
 }
 
 type Output struct {
-	Indicator resultIndicator
-	Module    modules.Module
-	Error     error
+	Indicator             resultIndicator
+	AdditionalInformation map[string]string
+	Module                modules.Module
+	Error                 error
 }
 
 type resultIndicator int

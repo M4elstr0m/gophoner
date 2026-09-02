@@ -33,19 +33,19 @@ func checkModule(phoneNumber string, module modules.Module) Output {
 	)
 
 	var indicator resultIndicator = NotRegistered
-	isRegistered, err := checkFunc(phoneNumber)
-	if err != nil {
+	result := checkFunc(phoneNumber)
+	if result.Err != nil {
 		log.Error("Failed to check a phone number",
 			_slices.Merge(
 				logs.OmitIfNotDebug("phonenumber", phoneNumber),
 				[]any{
 					"module", module,
-					"error", err,
+					"error", result.Err,
 				},
 			)...,
 		)
 
-		if errors.Is(err, modules.ErrorLimitReached) {
+		if errors.Is(result.Err, modules.ErrorLimitReached) {
 			indicator = LimitReached
 		} else {
 			indicator = ModuleError
@@ -61,14 +61,15 @@ func checkModule(phoneNumber string, module modules.Module) Output {
 			)...,
 		)
 
-		if isRegistered {
+		if result.IsRegistered {
 			indicator = Registered
 		}
 	}
 
 	return Output{
-		Indicator: indicator,
-		Module:    module,
-		Error:     err,
+		Indicator:             indicator,
+		AdditionalInformation: result.AdditionalInformation,
+		Module:                module,
+		Error:                 result.Err,
 	}
 }

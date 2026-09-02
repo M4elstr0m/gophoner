@@ -9,7 +9,7 @@ import (
 
 const LOGIN_PAGE_URL string = "https://auth.openai.com/log-in"
 
-func IsRegistered(phoneNumber string) (bool, error) {
+func IsRegistered(phoneNumber string) modules.IsRegisteredFuncOutput {
 	desktopPlatformsOnlyFilter := browser_profiles.PoolFilter{
 		AllowedFamilySlice:   nil,
 		AllowedPlatformSlice: platform.DesktopPlatforms,
@@ -20,5 +20,5 @@ func IsRegistered(phoneNumber string) (bool, error) {
 	ctx, cancel := _chrome.NewContext(browserProfile, modules.HTTP_CLIENT_TIMEOUT_SECONDS, true)
 	defer cancel()
 
-	return checkPhoneRegistration(ctx, phoneNumber)
+	return modules.NewIsRegisteredFuncOutput(checkPhoneRegistration(ctx, phoneNumber))
 }

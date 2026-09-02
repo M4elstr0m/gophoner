@@ -2,6 +2,7 @@ package report
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/M4elstr0m/gophoner/internal/recon"
 	"github.com/charmbracelet/lipgloss"
@@ -88,7 +89,18 @@ func print_result(result recon.Output) {
 		)
 	}
 
-	// Additionnal Infos would go here
+	var additionalInformationString strings.Builder
+	if len(result.AdditionalInformation) != 0 {
+		for key, value := range result.AdditionalInformation {
+			// my ide told me to optimize my basic concat with "+"
+			additionalInformationString.WriteString(lipgloss.NewStyle().
+				Bold(true).
+				Render(key))
+			additionalInformationString.WriteString("=")
+			additionalInformationString.WriteString(value)
+			additionalInformationString.WriteString(" ")
+		}
+	}
 
-	fmt.Println(ModuleBadge(result.Module), indicatorBadge)
+	fmt.Println(ModuleBadge(result.Module), indicatorBadge, additionalInformationString.String())
 }

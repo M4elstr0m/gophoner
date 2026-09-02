@@ -19,7 +19,7 @@ const (
 	NO_ACCOUNT_TOKEN string = "Looks like you're new to Amazon"
 )
 
-func IsRegistered(phoneNumber string) (bool, error) {
+func IsRegistered(phoneNumber string) modules.IsRegisteredFuncOutput {
 	desktopPlatformsOnlyFilter := browser_profiles.PoolFilter{
 		AllowedFamilySlice:   nil,
 		AllowedPlatformSlice: platform.DesktopPlatforms,
@@ -30,17 +30,17 @@ func IsRegistered(phoneNumber string) (bool, error) {
 	client, err := _http.NewTlsClient(browserProfile, modules.HTTP_CLIENT_TIMEOUT_INT_SECONDS)
 	if err != nil {
 		log.Warn("Failed to initialize TLS client", "error", err)
-		return false, err
+		return modules.MinimalIsRegisteredFuncOutput(false, err)
 	}
 
 	doc, postUrl, err := fetchLoginPage(browserProfile, client)
 	if err != nil {
-		return false, err
+		return modules.MinimalIsRegisteredFuncOutput(false, err)
 	}
 
 	form, postUrlString, err := resolveLoginForm(doc, phoneNumber, postUrl)
 	if err != nil {
-		return false, err
+		return modules.MinimalIsRegisteredFuncOutput(false, err)
 	}
 
 	resultDoc, err := submitLoginForm(
@@ -50,13 +50,13 @@ func IsRegistered(phoneNumber string) (bool, error) {
 		client,
 	)
 	if err != nil {
-		return false, err
+		return modules.MinimalIsRegisteredFuncOutput(false, err)
 	}
 
 	isRegistered, err := parseResultPage(resultDoc)
 	if err != nil {
-		return false, err
+		return modules.MinimalIsRegisteredFuncOutput(false, err)
 	}
 
-	return isRegistered, nil
+	return modules.MinimalIsRegisteredFuncOutput(isRegistered, nil)
 }
