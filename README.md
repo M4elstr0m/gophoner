@@ -20,7 +20,7 @@ Please star & share this repository if you find it useful :star:
 - [Installation](#installation-computer)
 - [Usage](#usage-books)
 - [Supported Modules](#modules-jigsaw)
-- [Roadmap](#roadmap-️world_map)
+- [Roadmap](#roadmap-world_map)
 - [Legal & Ethical Use](#legal--ethical-use-scroll)
 - [License](#license-balance_scale)
 - [Credits](#credits-newspaper)
@@ -100,7 +100,7 @@ gophoner check -t +15551234567 -A
 
 - [ ] v1.0.0
   - [x] Initial tool and Amazon module
-  - [ ] More modules: Microsoft, Facebook, Amazon & plenty more surprises :no_mouth:
+  - [x] More modules: Microsoft, Facebook, Amazon & plenty more surprises :no_mouth:
   - [ ] **gophoner** logo & a see it in action GIF
 - [ ] CLI QoL: only display positive results, loading bar
 - [ ] Redirect output to JSON
