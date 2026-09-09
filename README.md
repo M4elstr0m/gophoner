@@ -1,8 +1,6 @@
-# gophoner
+# gophoner​​     <img src="https://github.com/M4elstr0m/gophoner/raw/main/assets/gophoner-icon.svg" alt="Gophoner icon" width="64" height="64" align="middle">
 
 Check simultaneously if a phone number is registered on popular apps & websites, without any prerequisite.
-
-<!-- GOPHONER LOGO -->
 
 ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=M4elstr0m.gophoner&left_text=Visitors&right_color=orange)
 ![Stars Badge](https://img.shields.io/github/stars/M4elstr0m/gophoner?style=flat&color=yellow&label=Stars)
@@ -11,7 +9,7 @@ Check simultaneously if a phone number is registered on popular apps & websites,
 
 Please star & share this repository if you find it useful :star:
 
-<!-- GOPHONER GIF -->
+![Gophoner animation](https://github.com/M4elstr0m/gophoner/raw/main/assets/gophoner-animated-banner.gif)
 
 ## Table of Contents
 
