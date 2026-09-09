@@ -30,7 +30,20 @@ const (
 	ModuleError
 )
 
-func Run(input *Input) []Output {
+type EventKind int
+
+const (
+	ModuleStarted EventKind = iota
+	ModuleFinished
+)
+
+type Event struct {
+	Kind   EventKind
+	Module modules.Module
+	Output Output
+}
+
+func Run(input *Input) <-chan Event {
 	log.Info("New recon initiated",
 		_slices.Merge(
 			[]any{
@@ -40,19 +53,24 @@ func Run(input *Input) []Output {
 		)...,
 	)
 
-	var out []Output = make([]Output, len(input.ModuleSlice))
+	out := make(chan Event)
 
-	var wg sync.WaitGroup
-	wg.Add(len(input.ModuleSlice))
+	go func() {
+		defer close(out)
 
-	for i, module := range input.ModuleSlice {
-		go func(i int, module modules.Module) {
-			defer wg.Done()
-			out[i] = checkModule(input.PhoneNumber, module)
-		}(i, module)
-	}
+		var wg sync.WaitGroup
+		wg.Add(len(input.ModuleSlice))
 
-	wg.Wait()
+		for _, module := range input.ModuleSlice {
+			go func(module modules.Module) {
+				defer wg.Done()
+				out <- Event{Kind: ModuleStarted, Module: module}
+				out <- Event{Kind: ModuleFinished, Module: module, Output: checkModule(input.PhoneNumber, module)}
+			}(module)
+		}
+
+		wg.Wait()
+	}()
 
 	return out
 }

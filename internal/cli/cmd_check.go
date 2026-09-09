@@ -23,8 +23,7 @@ var checkCmd = &cobra.Command{
 	Use:   "check",
 	Short: "Check if a phone number is registered on a service",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		runCheck()
-		return nil
+		return runCheck()
 	},
 }
 
@@ -46,7 +45,7 @@ func init() {
 	rootCmd.AddCommand(checkCmd)
 }
 
-func runCheck() {
+func runCheck() error {
 	phoneNumber := checkCmdFlags.Target
 	if phoneNumber == "" {
 		if !strings.Contains(checkCmdFlags.CountryCode, "+") {
@@ -60,10 +59,14 @@ func runCheck() {
 		moduleSlice = modules.All()
 	}
 
-	out := recon.Run(&recon.Input{
+	out, err := report.Run(&recon.Input{
 		PhoneNumber: phoneNumber,
 		ModuleSlice: moduleSlice,
 	})
+	if err != nil {
+		return err
+	}
 
 	report.Print(phoneNumber, out)
+	return nil
 }

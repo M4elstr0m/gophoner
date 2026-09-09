@@ -101,9 +101,11 @@ gophoner check -t +15551234567 -A
 - [ ] v1.0.0
   - [x] Initial tool and Amazon module
   - [x] More modules: Microsoft, Facebook, Amazon & plenty more surprises :no_mouth:
+  - [x] CLI QoL: progress bar
   - [ ] **gophoner** logo & a see it in action GIF
-- [ ] CLI QoL: only display positive results, loading bar
+- [ ] CLI QoL: only display positive results, progressive results display, fun facts during progress
 - [ ] Redirect output to JSON
+- [ ] More modules!
 - [ ] A plug-in system (maybe)
 
 ## Legal & Ethical Use :scroll:

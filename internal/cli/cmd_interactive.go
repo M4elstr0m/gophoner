@@ -1,7 +1,6 @@
 package cli
 
 import (
-	"github.com/M4elstr0m/gophoner/internal/recon"
 	"github.com/M4elstr0m/gophoner/internal/report"
 	"github.com/M4elstr0m/gophoner/internal/tui"
 	"github.com/M4elstr0m/gophoner/internal/update"
@@ -30,7 +29,10 @@ func runInteractive(noUpdate bool) error {
 		return nil
 	}
 
-	out := recon.Run(input)
+	out, err := report.Run(input)
+	if err != nil {
+		return err
+	}
 
 	report.Print(input.PhoneNumber, out)
 
