@@ -1,4 +1,4 @@
-# gophoner​​     <img src="https://github.com/M4elstr0m/gophoner/raw/main/assets/gophoner-icon.svg" alt="Gophoner icon" width="64" height="64" align="middle">
+# gophoner​​     <img src="" alt="Gophoner icon" width="64" height="64" align="middle">
 
 Check simultaneously if a phone number is registered on popular apps & websites, without any prerequisite.
 
@@ -9,7 +9,7 @@ Check simultaneously if a phone number is registered on popular apps & websites,
 
 Please star & share this repository if you find it useful :star:
 
-![Gophoner animation](https://github.com/M4elstr0m/gophoner/raw/main/assets/gophoner-animated-banner.gif)
+![Gophoner animation]()
 
 ## Table of Contents
 
@@ -33,6 +33,8 @@ Please star & share this repository if you find it useful :star:
 > - [License](#license-balance_scale)
 
 ## Features
+
+![Gophoner in-action]()
 
 - **CLI and TUI**: use `gophoner check` for scripting and automation, or `gophoner interactive` for a guided terminal interface.
 - **Cross-platform**: prebuilt binaries for Windows, Linux, and macOS.
@@ -100,7 +102,7 @@ gophoner check -t +15551234567 -A
   - [x] Initial tool and Amazon module
   - [x] More modules: Microsoft, Facebook, Amazon & plenty more surprises :no_mouth:
   - [x] CLI QoL: progress bar
-  - [ ] **gophoner** logo & a see it in action GIF
+  - [x] **gophoner** logo & a see it in action GIF
 - [ ] CLI QoL: only display positive results, progressive results display, fun facts during progress
 - [ ] Redirect output to JSON
 - [ ] More modules!
