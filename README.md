@@ -34,7 +34,7 @@ Please star & share this repository if you find it useful :star:
 
 ## Features
 
-![Gophoner in-action]()
+![Gophoner in-action](https://github.com/user-attachments/assets/6c0d27e1-2bab-4d23-9063-3ecfb9882657)
 
 - **CLI and TUI**: use `gophoner check` for scripting and automation, or `gophoner interactive` for a guided terminal interface.
 - **Cross-platform**: prebuilt binaries for Windows, Linux, and macOS.
