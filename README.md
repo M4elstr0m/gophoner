@@ -1,4 +1,4 @@
-# gophoner​​     <img src="" alt="Gophoner icon" width="64" height="64" align="middle">
+# gophoner​​     <img src="https://github.com/user-attachments/assets/82a84627-3382-405c-8972-05f2b328559d" alt="Gophoner icon" width="64" height="64" align="middle">
 
 Check simultaneously if a phone number is registered on popular apps & websites, without any prerequisite.
 
@@ -9,7 +9,7 @@ Check simultaneously if a phone number is registered on popular apps & websites,
 
 Please star & share this repository if you find it useful :star:
 
-![Gophoner animation]()
+![Gophoner animation](https://github.com/user-attachments/assets/1fb7b01b-3953-40ba-88ad-28fd416a37a1)
 
 ## Table of Contents
 
