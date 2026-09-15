@@ -62,6 +62,8 @@ HOMEBREW_TAP_GITHUB_TOKEN=github_pat_xxxxxxxx
 
 > [!IMPORTANT]
 > The following steps are needed **on each new release**.
+>
+> The repository must be public.
 
 Create a tag on the repository (obviously bump the version each release)
 ```sh
