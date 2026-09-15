@@ -10,7 +10,7 @@ validate: generate
 	deadcode ./...
 
 build: validate
-	go build -o gophoner.exe ./cmd/gophoner
+	go build -o gophoner ./cmd/gophoner
 
 tidy:
 	go mod tidy
