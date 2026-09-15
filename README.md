@@ -46,6 +46,7 @@ Please star & share this repository if you find it useful :star:
 - **Randomized browser fingerprinting**: each request gets an internally consistent TLS, User-Agent, and Client Hints profile drawn from a real desktop browser pool, making requests far harder to fingerprint and block than a plain HTTP client.
 - **Single target scope**: checks one phone number against your chosen modules per invocation, not built for bulk enumeration.
 - **Update aware**: checks for new releases on startup and lets you know when one is available, disable with `--no-update`.
+- **JSON output**: `--json` formats the results as a single JSON object on stdout, for piping into other scripts & tools.
 
 ## Installation :computer:
 
