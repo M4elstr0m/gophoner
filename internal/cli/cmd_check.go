@@ -17,6 +17,8 @@ var checkCmdFlags struct {
 
 	ModuleSlice modules.ModuleSlice
 	AllModules  bool
+
+	JSON bool
 }
 
 var checkCmd = &cobra.Command{
@@ -33,6 +35,7 @@ func init() {
 	checkCmd.Flags().StringVarP(&checkCmdFlags.PhoneNumber, "phone", "p", "", "national phone number, e.g. 5551234567")
 	checkCmd.Flags().VarP(&checkCmdFlags.ModuleSlice, "module", "m", "module(s) to check, comma-separated (e.g. amazon,uber)")
 	checkCmd.Flags().BoolVarP(&checkCmdFlags.AllModules, "all", "A", false, "check against every available module")
+	checkCmd.Flags().BoolVar(&checkCmdFlags.JSON, "json", false, "output results as a single JSON object on stdout instead of the report")
 
 	checkCmd.MarkFlagsRequiredTogether("country-code", "phone")
 	checkCmd.MarkFlagsMutuallyExclusive("target", "country-code")
@@ -59,10 +62,16 @@ func runCheck() error {
 		moduleSlice = modules.All()
 	}
 
-	out, err := report.Run(&recon.Input{
+	input := &recon.Input{
 		PhoneNumber: phoneNumber,
 		ModuleSlice: moduleSlice,
-	})
+	}
+
+	if checkCmdFlags.JSON {
+		return report.PrintJSON(phoneNumber, recon.Collect(recon.Run(input)))
+	}
+
+	out, err := report.Run(input)
 	if err != nil {
 		return err
 	}

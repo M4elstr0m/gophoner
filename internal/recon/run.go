@@ -1,6 +1,7 @@
 package recon
 
 import (
+	"encoding/json"
 	"sync"
 
 	"github.com/M4elstr0m/gophoner/internal/logs"
@@ -15,10 +16,24 @@ type Input struct {
 }
 
 type Output struct {
-	Indicator             resultIndicator
-	AdditionalInformation map[string]string
-	Module                modules.Module
-	Error                 error
+	Indicator             resultIndicator   `json:"indicator"`
+	AdditionalInformation map[string]string `json:"additional_information,omitempty"`
+	Module                modules.Module    `json:"module"`
+	Error                 error             `json:"-"`
+}
+
+func (o Output) MarshalJSON() ([]byte, error) {
+	type alias Output
+
+	var errMessage string
+	if o.Error != nil {
+		errMessage = o.Error.Error()
+	}
+
+	return json.Marshal(struct {
+		alias
+		Error string `json:"error,omitempty"`
+	}{alias(o), errMessage})
 }
 
 type resultIndicator int
@@ -29,6 +44,21 @@ const (
 	LimitReached
 	ModuleError
 )
+
+func (i resultIndicator) MarshalJSON() ([]byte, error) {
+	switch i {
+	case Registered:
+		return json.Marshal("REGISTERED")
+	case NotRegistered:
+		return json.Marshal("NOT REGISTERED")
+	case LimitReached:
+		return json.Marshal("RATE LIMIT")
+	case ModuleError:
+		return json.Marshal("ERROR")
+	default:
+		return json.Marshal("UNKNOWN")
+	}
+}
 
 type EventKind int
 
@@ -71,6 +101,18 @@ func Run(input *Input) <-chan Event {
 
 		wg.Wait()
 	}()
+
+	return out
+}
+
+func Collect(events <-chan Event) []Output {
+	var out []Output
+
+	for event := range events {
+		if event.Kind == ModuleFinished {
+			out = append(out, event.Output)
+		}
+	}
 
 	return out
 }

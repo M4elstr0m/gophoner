@@ -140,7 +140,7 @@ func Notify(noUpdate bool) bool {
 		"current", version.Version,
 		"latest", latest,
 	)
-	fmt.Printf("%s A new version of gophoner is available: %s (current: v%s)\n%s Get it here: %s\n\n",
+	fmt.Fprintf(os.Stderr, "%s A new version of gophoner is available: %s (current: v%s)\n%s Get it here: %s\n\n",
 		updateBadgeStyle.Render("NEW UPDATE"),
 		latest,
 		version.Version,

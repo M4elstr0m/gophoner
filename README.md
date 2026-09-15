@@ -26,11 +26,13 @@ Please star & share this repository if you find it useful :star:
 ## Disclaimer :warning:
 
 > [!CAUTION]
-> It is important you read the full policy of this project before using or contributing to this tool.
+> It is important you **read the full policy of this project** before using or contributing to this tool.
 > 
 > Please refer to the following sections:
 > - [Legal & Ethical Use](#legal--ethical-use-scroll)
 > - [License](#license-balance_scale)
+>
+> **I am not responsible for your usage of this tool.**
 
 ## Features
 
@@ -119,13 +121,13 @@ gophoner check -t +15551234567 -A
 
 ## Roadmap :world_map:
 
-- [ ] v1.0.0
+- [x] v1.0.0
   - [x] Initial tool and Amazon module
   - [x] More modules: Microsoft, Facebook, Amazon & plenty more surprises :no_mouth:
   - [x] CLI QoL: progress bar
   - [x] **gophoner** logo & a see it in action GIF
   - [x] More release platforms (AUR, Winget, Homebrew)
-  - [ ] Redirect output to JSON
+  - [x] Format output in JSON
 - [ ] CLI QoL: only display positive results, progressive results display, fun facts during progress
 - [ ] More modules!
 - [ ] A plug-in system (maybe)
