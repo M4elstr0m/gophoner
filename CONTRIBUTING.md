@@ -5,7 +5,7 @@ request, please read this in full.
 
 ## Forks exist to contribute back
 
-This repository is licensed under the PolyForm Internal Use License —
+This repository is licensed under the PolyForm Internal Use License -
 forking it does not grant you the right to distribute your own version,
 modified or not, independently of this project. Fork it to prepare a
 change, then open a pull request against this repository. Maintaining a
@@ -17,7 +17,7 @@ permits.
 1. Fork the repository and create a branch off `main`.
 2. Make your change.
 3. Open a pull request describing what it does and why.
-4. A maintainer will review it. There's no guarantee of acceptance —
+4. A maintainer will review it. There's no guarantee of acceptance -
    feedback and iteration are part of the process.
 
 You can also request a feature (e.g: a new website module) by opening a discussion or an issue on Github. This is a good way to contribute to this project.
