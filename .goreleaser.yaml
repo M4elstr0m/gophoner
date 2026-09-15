@@ -68,3 +68,35 @@ release:
     Please check README.md for further information.
 
     Do not hesitate to reach me, using the links on [my profile](https://github.com/M4elstr0m/)
+
+homebrew_casks:
+  - name: gophoner
+    binaries:
+      - gophoner
+    homepage: "https://github.com/M4elstr0m/gophoner"
+    description: "Check simultaneously if a phone number is registered on popular apps & websites."
+    license: "PolyForm-Internal-Use-1.0.0"
+    repository:
+      owner: M4elstr0m
+      name: homebrew-tap
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+
+winget:
+  - name: gophoner
+    publisher: M4elstr0m
+    publisher_url: "https://github.com/M4elstr0m"
+    short_description: "Check simultaneously if a phone number is registered on popular apps & websites."
+    homepage: "https://github.com/M4elstr0m/gophoner"
+    license: "PolyForm-Internal-Use-1.0.0"
+    license_url: "https://github.com/M4elstr0m/gophoner/blob/main/LICENSE"
+    repository:
+      owner: M4elstr0m
+      name: winget-pkgs
+      branch: "gophoner-{{ .Version }}"
+      token: "{{ .Env.WINGET_GITHUB_TOKEN }}"
+      pull_request:
+        enabled: true
+        base:
+          owner: microsoft
+          name: winget-pkgs
+          branch: master

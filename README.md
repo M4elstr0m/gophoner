@@ -49,18 +49,39 @@ Please star & share this repository if you find it useful :star:
 
 ![go install](https://img.shields.io/badge/Go%20Install-00ADD8?logo=Go&logoColor=white&style=for-the-badge)
 
-Using `go install` (Requires [Go](https://go.dev/dl/) 1.26 or newer)
+Requires [Go](https://go.dev/dl/) 1.26 or newer.
 ```sh
 go install github.com/M4elstr0m/gophoner/cmd/gophoner@latest
 ```
 
-![arch aur](https://img.shields.io/badge/AUR%20(PARU%20/%20YAY)-1793D1?logo=ArchLinux&logoColor=white&style=for-the-badge)
+![arch aur](https://img.shields.io/badge/AUR-1793D1?logo=ArchLinux&logoColor=white&style=for-the-badge)
 
 > [!IMPORTANT]
 > This only works on Arch-based Linux distributions.
 
+Requires `paru` or `yay` installed.
 ```sh
 # WORK IN PROGRESS (THIS IS PLANNED)
+```
+
+![winget](https://custom-icon-badges.demolab.com/badge/Winget-0078D6?logo=windows11&logoColor=white&style=for-the-badge)
+
+> [!IMPORTANT]
+> This only works on Windows.
+
+Requires `winget` installed.
+```sh
+winget install M4elstr0m.gophoner
+```
+
+![homebrew](https://img.shields.io/badge/Homebrew-FBB040?logo=homebrew&logoColor=black&style=for-the-badge)
+
+> [!IMPORTANT]
+> This only works on macOS.
+
+Requires `brew` installed.
+```sh
+brew install --cask M4elstr0m/tap/gophoner
 ```
 
 ---
