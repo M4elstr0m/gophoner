@@ -127,8 +127,9 @@ gophoner check -t +15551234567 -A
   - [x] More modules: Microsoft, Facebook, Amazon & plenty more surprises :no_mouth:
   - [x] CLI QoL: progress bar
   - [x] **gophoner** logo & a see it in action GIF
-  - [x] More release platforms (AUR, Winget, Homebrew)
+  - [x] More release platforms (Go Install, Winget, Homebrew)
   - [x] Format output in JSON
+- [ ] Add AUR to release platforms
 - [ ] CLI QoL: only display positive results, progressive results display, fun facts during progress
 - [ ] More modules!
 - [ ] A plug-in system (maybe)
